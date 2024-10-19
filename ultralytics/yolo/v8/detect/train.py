@@ -125,15 +125,13 @@ class DetectionTrainer(BaseTrainer):
 
 
 def train(cfg=DEFAULT_CFG, use_python=False):
-    """Train and optimize YOLO model given training data and device."""
-    # model = cfg.model or 'yolov8n.pt'
-    from ultralytics import YOLO
-    model = YOLO(
-        'G:/UAV/code/ultralytics-8940a27bdb26895f09a1554514a9a46312aa89c3/ultralytics/models/v8/yolov8-BiFPN.yaml')
-    model.load("yolov8n.pt")
-    model.train(
-        **{'cfg': 'G:/UAV/code/ultralytics-8940a27bdb26895f09a1554514a9a46312aa89c3/ultralytics/yolo/cfg/default.yaml',
-           'data': 'myvoc.yaml'})
+      from ultralytics import YOLO
+      model = YOLO(
+          '/kaggle/working/YOLOv8_BiFPN/ultralytics/models/v8/yolov8-BiFPN.yaml')
+      model.load("yolov8n.pt")
+      model.train(
+          **{'cfg': '/kaggle/working/YOLOv8_BiFPN/ultralytics/yolo/cfg/default.yaml',
+            'data': 'myvoc.yaml'})
 
     # data = 'myvoc.yaml'  # or yolo.ClassificationDataset("mnist")
     # device = cfg.device if cfg.device is not None else ''
